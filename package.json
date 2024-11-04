@@ -1,0 +1,17 @@
+{
+  "name": "expensetracker",
+  "version": "1.0.0",
+  "description": "\"manage your pocket money\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "\"ujjawal jaiswal\"",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "method-override": "^3.0.0",
+    "uuid": "^11.0.1"
+  }
+}

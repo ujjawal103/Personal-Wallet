@@ -1,0 +1,263 @@
+*{
+    margin:0%;
+    padding:0%;
+    box-sizing: border-box;
+}
+
+html,body{
+    height:100%;
+    width:100%;
+}
+body{
+    background-color: rgb(11, 4, 51);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+  
+    background-color: rgb(11, 4, 51);
+    color: white;
+
+    padding: 20px;
+    gap: 20px;
+}
+
+.total_curr{
+    background-color: rgb(21, 8, 96);
+    padding: 4vw;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    border: 2px solid rgb(111, 159, 40);
+    border-radius: 10px;
+}
+.total_curr h2{
+    text-align: center;
+}
+#total{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#current{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.total_curr a{
+    padding: 20px;
+    align-self: last baseline;
+    background-color: greenyellow;
+    border: 2px solid grey;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: large;
+    color: rgb(21, 8, 96);
+}
+
+
+.red{
+    color: rgb(141, 33, 33);
+}
+.green{
+    color: rgb(44, 204, 44);
+}
+.Exp_income{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.Exp_income div{
+    width: 20vw;
+    height: 100px;
+    border-radius: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+#expense{
+    background-color: red;
+}
+#income{
+    background-color: rgb(44, 204, 44);
+}
+.Exp_income div a{
+  text-decoration: none;
+  font-size: 2vw;
+  text-wrap: wrap;
+  color:rgb(21, 8, 96) ;
+}
+
+@media (max-width : 650px){
+    .Exp_income{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .Exp_income div{
+        width: 80vw;
+        height: 100px;
+        border-radius: 50px;
+        background-color: aqua;
+    }
+    .Exp_income div a{
+        text-decoration: none;
+        font-size: 6vw;
+        text-wrap: wrap;
+        color:rgb(21, 8, 96) ;
+      }
+}
+
+.rowWise{
+    width: 30vw;
+    min-height: 100px;
+    border-radius: 50px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    background-color: rgb(21, 8, 96);
+    color: white;
+   padding-bottom: 10px;
+
+    border: 3px solid red;
+}
+.green2{
+    border: 3px solid rgb(44, 204, 44);
+}
+
+.loss{
+    width: 30vw;
+    min-height: 100px;
+    border-radius: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: grey;
+    color: white;
+    padding: 20px;
+
+    border: 3px solid red;
+}
+.profit{
+    border: 3px solid rgb(44, 204, 44);
+}
+
+.reason{
+    color: rgb(21, 8, 96);
+    width: 70%;
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.amt{
+    font-size: x-large;
+    font-weight: 700;
+    color: rgb(141, 33, 33);
+    width: 20%;
+}
+.profit .amt{
+    font-size: x-large;
+    color: rgb(44, 204, 44);
+}
+
+
+
+.loss-expense{
+    width: 100%;
+    display: flex;
+    align-items: first baseline;
+    justify-content: space-between;
+    
+}
+.onlyExp{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    
+}
+.onlyIncome{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+   
+}
+
+@media (max-width : 650px){
+    .rowWise{
+        width: 80vw;
+    }
+    .loss{
+        width: 80vw;
+    }
+    .loss-expense{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        
+    }
+    .onlyExp{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        border-right: none;
+    }
+    .onlyIncome{
+        padding-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        border-left: none;
+        border-top: 2px solid rgb(133, 44, 133);
+    }
+    
+}
+
+.options{
+  
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.options form button{
+    padding: 10px 20px;
+    background-color: rgb(70, 66, 66);
+    color: whitesmoke;
+    align-self: flex-start;
+    text-decoration: none;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    font-style: oblique;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.options form .red2{
+    background-color: rgba(215, 14, 51, 0.9);
+    color:rgb(21, 8, 96) ;
+}

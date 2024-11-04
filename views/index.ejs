@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="/styleSheets/index.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.4.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<body>
+    <main>
+        <section class="total_curr">
+            <h2>Student Wallet For a Month</h2>
+            <% if((Amount.totalAmount == Amount.currAmount) && Amount.totalAmount != 0) {%>
+            <div id="total"><h2>Total balance : </h2> <h3>₹ <%= Amount.totalAmount %></h3></div>
+            <div id="current"><h2>Current balance : </h2> <h3>₹ <%= Amount.currAmount %></h3></div>
+            <% } %>
+            <% if(Amount.totalAmount == 0 && Amount.currAmount != 0) {%>
+               <h3>Please Enter A new Amount First</h3>
+                <% } %>
+            <% if(Amount.totalAmount > Amount.currAmount && Amount.totalAmount != 0) {%>
+                <div id="total"><h2>Total balance : </h2> <h3>₹ <%= Amount.totalAmount %></h3></div>
+                <div id="current" class="red"><h2>Current balance : </h2> <h3>₹ <%= Amount.currAmount %></h3></div>
+                <% } %>
+            <% if(Amount.totalAmount < Amount.currAmount && Amount.totalAmount != 0) {%>
+                <div id="total"><h2>Total balance : </h2> <h3>₹ <%= Amount.totalAmount %></h3></div>
+                <div id="current" class="green"><h2>Current balance : </h2> <h3>₹ <%= Amount.currAmount %></h3></div>
+            <% } %>
+
+            <a href="/">New Balance</a>
+        </section>
+
+        <section class="Exp_income">
+            <div id="expense"><a href="/expenses/expense">Add an Expense</a></div>
+            <div id="income"><a href="/expenses/income">Add an Income</a></div>
+        </section>
+
+        <hr>
+     <div class="loss-expense">
+      <div class="onlyExp">
+        <% for(let exp of expenseArr) { %>
+            <div class="rowWise">
+                <div class="loss">
+                    <div class="reason"><%= exp.reason %></div>
+                    <div class="amt"> -₹ <%= exp.loss %></div>
+                </div>
+               
+                <div class="options">
+                    <form method="post" action="/expenses/expense/<%=exp.id%>/edit?_method=PATCH">
+                        <button type="submit"><i class="ri-edit-line"> </i> &nbsp; Edit</button>
+                    </form>
+                    <form method="post" action="/expenses/<%=exp.id%>/delete?_method=DELETE">
+                        <button type="submit" class="red2"><i class="ri-delete-bin-line"></i> &nbsp; Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% } %>
+      </div>  
+        
+      <div class="onlyIncome">
+        <% for(let profit of incomeArr) { %>
+            <div class="rowWise green2">
+                <div class="loss profit">
+                    <div class="reason"><%= profit.reason %></div>
+                    <div class="amt"> +₹ <%= profit.gain %></div>
+                </div>
+                <div class="options" >
+                    <form method="post" action="/expenses/income/<%=profit.id%>/edit?_method=PATCH">
+                        <button type="submit"><i class="ri-edit-line"></i> &nbsp; Edit</button>
+                    </form>
+                    <form method="post" action="/expenses/<%=profit.id%>/delete?_method=DELETE"  >
+                        <button type="submit"class="red2"><i class="ri-delete-bin-line"></i> &nbsp; Delete</button>
+                    </form>
+                </div>
+               
+            </div>
+        <% } %>
+      </div>
+       
+     </div>
+       
+
+    </main>
+   
+ <script>
+    let lossExp = document.querySelector(".loss-expense");
+    let exp = document.querySelector(".onlyExp");
+    let gain = document.querySelector(".onlyIncome");
+
+   
+
+    const mediaQuery = window.matchMedia('(max-width: 650px)');
+    setInterval(function(){
+    if (mediaQuery.matches) {
+    exp.style.borderRight ="none";
+    gain.style.borderLeft="none";
+    } else {
+        if(exp.childNodes.length>gain.childNodes.length){
+        exp.style.borderRight = `2px solid rgb(133, 44, 133)`;
+        }
+        else{
+        gain.style.borderLeft = `2px solid rgb(133, 44, 133)`;
+        }
+    }
+    },500);
+    
+
+ </script>
+  
+    
+
+   </style>
+</body>
+</html>
+
